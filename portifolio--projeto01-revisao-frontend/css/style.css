@@ -1,0 +1,110 @@
+/*reset css e estilos globais junto definiçao das variaveis de cor*/
+:root{
+--cor-fundo:#f0f2f5;
+--cor-branco:#ffff;
+--cor-testo-primario:#1c1e21;
+----cor-borda:#dcdfe3;
+--cor-ascento:#007bff;
+--cor-dourado:#ffd700;
+}
+*{
+    margin: 0;
+    padding: 0;
+    box-sizing: border-box;
+}
+/*organizando o coponente para a barra de visualização*/
+body{
+    background-color: var(--cor-testo-primario);
+    font-family: -apple-system, BlinkMacSystemFont, 'Segoe UI', Roboto,'Helvetica Neue', arial, sans-serif; 
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    min-height: 100vh;
+}
+/*estilização do componente principal*/
+.card {
+    background-color: var(--cor-testo-primario);
+    border: 1px solid var(--cor-dourado);
+    border-radius: 16px;
+    box-shadow: 0 8px 24px rgba(0,0,0,0.1);
+    padding: 16px;
+    max-width: 400px;
+    width: 320%;
+    /*aqui que começa a magica da transforamação*/
+    transition: transform 0.3s ease, box-shadow rgba(0, 0, 0, 0.2); 
+    overflow: hidden;
+    text-align: center;
+}
+/* efeito de  hover no card */
+.card:hover{
+    transform: translateY(-10px);/*movimenta o card para cima em 10px*/
+    box-shadow: 0 12px 32px rgba(0,0,0,0.2);
+}
+
+.card_image-container{
+    width:100%;
+    height: 200px;/*altura fixa para o container da imagem*/
+}
+.card_image-container img{
+    width: 100%; 
+    height: 100%;
+    object-fit: cover;/*cobre todo o container mantendo a proporção, garante que a imagem cubra o espaço sem distorcer*/
+}
+/* 5.estilos de titulo do card (nome, titulo e social)*/
+.card_info{
+    padding: 24px;
+}
+.card_title{
+    font-size: 1.0rem;
+    font-weight: bold;
+    margin-bottom: 16px;
+    
+}
+.card_name{
+    font-size: 1.0rem;/* 24 */
+    color: var(--cor-dourado);
+    margin-bottom: 24px;
+   
+}
+
+.card_description{
+    font-size: 1rem;
+    color: var(--cor-dourado);
+}
+
+.card_footer{
+    margin-top: 12px;
+    text-align: right;
+}
+/*estilizar os icones da rede social utilizando flexbox*/
+.card_social{
+    display: flex;/*ativa o flex box*/
+    justify-content: center;/*alinha os icones no centro*/
+    gap: 16px;/* espaçamento entre os icones sociais*/
+}
+.card_social a{
+    display: flex;
+    align-items: center;/*alinha os itens no centro*/
+    justify-content: center;/*centraliza os itens horizontalmente*/
+    color: var(--cor-dourado);
+    border: 2px solid var(--cor-dourado);
+    width: 40px;/*largura fixa para os itens*/
+    height: 40px;/*altura fixa para os itens*/
+    border-radius: 50%;/*bordas arredondadas do icone social*/
+   font-size:1.5rem; /*24px*/
+    text-decoration: none;/*remove o sublinhado do link*/
+    transition: background-color 0.3s ease, color 0.3s ease; /*transição suave para as cores de fundo e texto*/
+    
+}
+.card_social a:hover{
+    background-color: var(--cor-dourado);
+    color: var(--cor-testo-primario);
+    border-color: var(--cor-testo-primario); /*muda a cor de fundo e do texto ao passar o mouse*/
+}
+/*design responsivo (Primeira Media Query)*/
+@media (max-width: 400px) {
+    .card {
+        width: 90%;/*o card ocupa 90% da largura da tela*/
+        max-width: 400px;
+    }
+}
